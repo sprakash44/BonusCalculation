@@ -28,9 +28,9 @@ public class ConnectionFactory {
 		return getInstance().createConnection();
 	}
 	private Connection createConnection() {
-		Properties credentialsProps = null;
-		boolean error = true;
-		try {
+	//	Properties credentialsProps = null;
+		//boolean error = true;
+	/*	try {
 			credentialsProps = new Properties();
 			InputStream stream = ClassLoader.getSystemResourceAsStream("credentials.properties");
 			if (stream == null) {
@@ -51,22 +51,24 @@ public class ConnectionFactory {
 
 		if (error) {
 			return null;
-		}
+		}*/
 
 		try {
 			log.info("loading driver");
-			Class.forName(credentialsProps.getProperty("driver.name"));
+			//Class.forName(credentialsProps.getProperty("driver.name"));
+			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			log.error(e.getMessage());
 		}
 
-		String url = credentialsProps.getProperty("url");
+	/*	String url = credentialsProps.getProperty("url");
 		String user = credentialsProps.getProperty("user");
 		String password = credentialsProps.getProperty("pwd");
-
+*/
 		try {
-			log.info("asdf"+url);
-			connection = DriverManager.getConnection(url, user, password);
+			
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/empbonusdata", "root","root");
+			log.info("connection:"+connection);
 		} catch (SQLException e) {
 			log.error(e.getMessage());
 		}

@@ -7,7 +7,6 @@ import com.imcs.bonus.pojo.Employee;
 public interface EmployeeDAO {
 	public List<Employee> getEmployeesByAge(int deptNo);
 	public List<Employee> getEmployeesByJoining(int deptNo);
-	public void loadEmployee(List<Employee> employees);
-	
-	
+	public void loadEmployee(List<Employee> employees);	
+	public Employee getEmployeeByNo(int empNo);
 }

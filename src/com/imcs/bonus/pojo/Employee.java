@@ -20,6 +20,13 @@ public class Employee implements Serializable{
 	public Employee(){
 		
 	}
+	
+	@Override
+	public String toString() {
+		return "Employee [empNo=" + empNo + ", deptNo=" + deptNo + ", doj=" + doj + ", dob=" + dob + ", salary="
+				+ salary + ", salGrade=" + salGrade + "]";
+	}
+
 	public Employee(int empNo, int deptNo, Date doj, Date dob, float salary, int salGrade) {
 		super();
 		this.empNo = empNo;
